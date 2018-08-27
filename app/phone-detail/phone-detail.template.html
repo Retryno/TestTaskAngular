@@ -1,0 +1,29 @@
+
+<div class="container-fluid" ng-controller="deleteFromBasket">
+  <div class="row">
+    <div class="col-md-2">
+      <a  href="#!/phones">Головна</a>
+    </div>
+    <div ng-show="isOpen"></div>
+      <p>{{!phones || phones.length === 0 ? 'Корзина пуста' : ''}}</p>
+    <div class="col-md-10">
+      <ul class="phones">
+        <li ng-repeat="phone in phones"
+            class="thumbnail phone-list-item">
+          <a class="thumb">
+            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+          </a>
+          <p>{{phone.name}}</p>
+          <div>
+            <button ng-click="deleteFromBasket(phone.id)">Видалити з корзини</button>
+          <div>
+          <div style="margin: -55px 300px; ">
+            <button ng-click="addGoods(phone.id)">+</button>
+            <p style="margin: 0px 6px;">{{phone.count}}</p>
+            <button ng-click="deleteGoods(phone.id)">-</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
